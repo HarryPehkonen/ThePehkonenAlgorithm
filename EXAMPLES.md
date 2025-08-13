@@ -15,7 +15,7 @@ Mary	Johnson	32
 
 ### Processing Pipeline
 ```bash
-tabSort -t "Last Name" people.tab | tabUnique --multiples -t "Last Name" > families.tab
+tabSort -t "Last Name" people.tab | tabUnique --multiples -t "Last Name" > people_with_families.tab
 ```
 
 ### Step-by-step Breakdown
@@ -36,18 +36,22 @@ John	Smith	25
 | Position | Item | prev_match | next_match | Classification | Action |
 |----------|------|------------|------------|----------------|---------|
 | BOF | - | - | - | - | Initialize |
-| 1 | Johnson | false | true | First | Skip (not single) |
-| 2 | Johnson | true | true | Middle | Skip (not single) |
-| 3 | Johnson | true | false | Last | Skip (not single) |
-| 4 | Jones | false | false | Single | **Output** |
-| 5 | Smith | false | true | First | Skip (not single) |
-| 6 | Smith | true | false | Last | Skip (not single) |
+| 1 | Johnson | false | true | First | **Output** (part of group) |
+| 2 | Johnson | true | true | Middle | **Output** (part of group) |
+| 3 | Johnson | true | false | Last | **Output** (part of group) |
+| 4 | Jones | false | false | Single | Skip (not part of group) |
+| 5 | Smith | false | true | First | **Output** (part of group) |
+| 6 | Smith | true | false | Last | **Output** (part of group) |
 | EOF | - | - | - | - | Complete |
 
-3. **Output (families.tab):**
+3. **Output (people_with_families.tab):**
 ```
 First Name	Last Name	Age
-Bob	Jones	30
+Alice	Johnson	28
+Mary	Johnson	32
+Tom	Johnson	35
+Jane	Smith	23
+John	Smith	25
 ```
 
 ## Example 2: Log Event Boundaries

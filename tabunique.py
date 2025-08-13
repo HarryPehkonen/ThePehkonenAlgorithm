@@ -57,7 +57,7 @@ def filter_by_flag(results: Iterator[Tuple[int, str, Classification]],
                    flag: str) -> Iterator[Tuple[int, str, Classification]]:
     """Filter results based on CLI flag."""
     for index, item, classification in results:
-        if flag == "multiples" and classification == Classification.SINGLE:
+        if flag == "multiples" and classification != Classification.SINGLE:
             yield (index, item, classification)
         elif flag == "first" and classification == Classification.FIRST:
             yield (index, item, classification)
@@ -118,7 +118,7 @@ Examples:
     
     group = parser.add_mutually_exclusive_group()
     group.add_argument("--multiples", action="store_const", const="multiples", dest="flag",
-                      help="Return only single items (no duplicates)")
+                      help="Return only items that are part of groups (no singles)")
     group.add_argument("--first", action="store_const", const="first", dest="flag", 
                       help="Return only first occurrence of each group")
     group.add_argument("--last", action="store_const", const="last", dest="flag",

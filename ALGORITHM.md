@@ -39,7 +39,7 @@ Uses a sliding window of 3 consecutive items, comparing each item with its neigh
 ### CLI Flag Mapping
 
 For tabTools-style interface:
-- `--multiples`: `!(prev_match || next_match)` → Return only singles
+- `--multiples`: `(prev_match || next_match)` → Return only items that are part of groups
 - `--first`: `!prev_match && next_match` → Return only first of groups  
 - `--last`: `prev_match && !next_match` → Return only last of groups
 - Default: Return all items with classification
