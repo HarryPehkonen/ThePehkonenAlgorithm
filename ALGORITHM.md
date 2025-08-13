@@ -1,4 +1,4 @@
-# The Pehnkonen Algorithm
+# The Pehkonen Algorithm
 
 ## Overview
 

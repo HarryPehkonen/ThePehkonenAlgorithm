@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-tabUnique - Implementation of the Pehnkonen Algorithm
+tabUnique - Implementation of the Pehkonen Algorithm
 Classifies items in sorted data using sliding window boolean pattern matching.
 
 Usage:
@@ -21,7 +21,7 @@ class Classification(Enum):
 
 def pehnkonen_algorithm(items: List[str]) -> Iterator[Tuple[int, str, Classification]]:
     """
-    Core Pehnkonen Algorithm implementation.
+    Core Pehkonen Algorithm implementation.
     
     Args:
         items: Sorted list of items to classify
@@ -103,7 +103,7 @@ def process_tabulated_data(input_stream, target_column: Optional[str] = None,
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Classify items in sorted data using the Pehnkonen Algorithm",
+        description="Classify items in sorted data using the Pehkonen Algorithm",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:

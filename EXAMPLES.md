@@ -146,7 +146,7 @@ product_id	name	category	classification
 sort file.tab | uniq
 ```
 
-### Pehnkonen Algorithm (Single Pass)
+### Pehkonen Algorithm (Single Pass)
 ```bash
 # O(n log n) sort + O(n) classification  
 tabSort -t "column" file.tab | tabUnique -t "column"
